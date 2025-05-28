@@ -8,6 +8,13 @@ const { signup, login } = require('./controllers/authController');
 const { addTask, getTasks, deleteTask } = require('./controllers/taskController');
 const taskRoutes = require('./routes/taskRoutes');
 
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://To-Do-App.onrender.com', 
+  credentials: true,
+}));
+
+
 const app = express();
 app.use(cors());
 app.use(express.json());
