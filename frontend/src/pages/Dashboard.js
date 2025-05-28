@@ -26,7 +26,7 @@ export default function Dashboard() {
       return;
     }
     
-    fetch('http://localhost:5000/api/tasks', {
+    fetch('https://to-do-app-9zxt.onrender.com/api/tasks', {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => {
@@ -68,7 +68,7 @@ export default function Dashboard() {
     formData.append('title', title);
     if (image) formData.append('image', image);
 
-    fetch('http://localhost:5000/api/tasks', {
+    fetch('https://to-do-app-9zxt.onrender.com/api/tasks', {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
@@ -87,7 +87,7 @@ export default function Dashboard() {
   }
 
   function handleDelete(taskId) {
-    fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+    fetch(`https://to-do-app-9zxt.onrender.com/api/tasks/${taskId}`, {
       method: 'DELETE',
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -96,7 +96,7 @@ export default function Dashboard() {
   }
 
   function handleMarkComplete(taskId) {
-    fetch(`http://localhost:5000/api/tasks/${taskId}/complete`, {
+    fetch(`https://to-do-app-9zxt.onrender.com/api/tasks/${taskId}/complete`, {
       method: 'PATCH',
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -108,7 +108,7 @@ export default function Dashboard() {
   }
 
   function handleClearCompleted() {
-    fetch('http://localhost:5000/api/tasks/completed', {
+    fetch('https://to-do-app-9zxt.onrender.com/api/tasks/completed', {
       method: 'DELETE',
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -157,7 +157,7 @@ export default function Dashboard() {
         {filteredTasks.map(task => (
           <div key={task._id} className="task-card">
             <h4>{task.title}</h4>
-            {task.imageUrl && <img src={`http://localhost:5000${task.imageUrl}`} alt="task" />}
+            {task.imageUrl && <img src={`https://to-do-app-9zxt.onrender.com${task.imageUrl}`} alt="task" />}
             <div className="task-buttons">
               {!task.completed && (
                 <button onClick={() => handleMarkComplete(task._id)}>Mark as Complete</button>
